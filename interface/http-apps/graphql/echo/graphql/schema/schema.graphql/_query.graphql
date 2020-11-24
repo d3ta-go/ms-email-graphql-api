@@ -1,0 +1,6 @@
+type Query {
+  # Email Template: List All
+  etListAll(): ETListAll!
+  # Email Template: Find By Code
+  etFindByCode(code: String!): EmailTemplate!
+}
