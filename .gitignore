@@ -13,3 +13,17 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# DDD Project Template
+conf/config.yaml
+conf/data/test-data.yaml
+
+caches/
+dist/
+logs/
+temp/
+
+.env
+d3ta-go
+project-template
+ms-email-graphql-api
