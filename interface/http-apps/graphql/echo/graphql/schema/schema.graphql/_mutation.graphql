@@ -1,2 +1,4 @@
 type Mutation {
+    # Null: Just another Null mutation!
+    Null(): String!
 }
