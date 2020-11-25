@@ -1,4 +1,14 @@
 type Mutation {
     # Null: Just another Null mutation!
     Null(): String!
+    # SendEmail
+    SendEmail(input: SendEmailInput!): SendEmailRes!
+    # Email Template: Create New Email Template
+    ETCreate(input: ETCreateInput!): ETCreateRes!
+    # Email Template: Update Existing Email Template
+    ETUpdate(keys: ETUpdateKeysInput!, data: ETUpdateInput!): ETUpdateRes!
+    # Email Template: Update Existing Email Template (Active) Status
+    ETSetActive(keys: ETUpdateKeysInput!, data: ETSetActiveInput!): ETSetActiveRes!
+    # Email Template: Delete By Code
+    ETDelete(code: String!): ETDeleteRes!
 }

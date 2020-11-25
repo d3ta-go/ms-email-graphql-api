@@ -31,6 +31,9 @@ func (r *RootResolver) ETListAll() (*email.ETListAllResolver, error) {
 	}
 
 	// response
+	etRxs = &email.ETListAllResolver{Model: resp}
+
+	/* // another trick
 	tmpRes := &email.ETListAllResponse{}
 	tmpRes.Count = resp.Count
 	for _, r := range resp.Data {
@@ -46,13 +49,14 @@ func (r *RootResolver) ETListAll() (*email.ETListAllResolver, error) {
 		tmpRes.Data = append(tmpRes.Data, d)
 	}
 	etRxs = &email.ETListAllResolver{Model: tmpRes}
+	*/
 
 	return etRxs, nil
 }
 
 // ETFindByCode find EmailTemplateByCode
-func (r *RootResolver) ETFindByCode(args struct{ Code string }) (*email.ETResolver, error) {
-	var etRxs *email.ETResolver
+func (r *RootResolver) ETFindByCode(args email.ETFindByCodeRequest) (*email.ETFindByCodeResolver, error) {
+	var etRxs *email.ETFindByCodeResolver
 
 	// identity
 	i, err := r.SetIdentity(r.context)
@@ -79,6 +83,9 @@ func (r *RootResolver) ETFindByCode(args struct{ Code string }) (*email.ETResolv
 	}
 
 	// response
+	etRxs = &email.ETFindByCodeResolver{Model: resp}
+
+	/* // another trick
 	rd := resp.Data
 	tmpRes := &email.EmailTemplate{
 		ID:               rd.ID,
@@ -96,8 +103,8 @@ func (r *RootResolver) ETFindByCode(args struct{ Code string }) (*email.ETResolv
 			EmailTemplateID: rd.DefaultTemplateVersion.EmailTemplateID,
 		},
 	}
-
 	etRxs = &email.ETResolver{Model: tmpRes}
+	*/
 
 	return etRxs, nil
 }
