@@ -5,12 +5,15 @@ import (
 	"strconv"
 )
 
+// Uint64 scalar type
 type Uint64 uint64
 
+// ImplementsGraphQLType implement GraphQLType
 func (Uint64) ImplementsGraphQLType(name string) bool {
 	return name == "Uint64"
 }
 
+// UnmarshalGraphQL unmarshal GraphQL
 func (i *Uint64) UnmarshalGraphQL(input interface{}) error {
 	var err error
 	switch input := input.(type) {
@@ -42,6 +45,7 @@ func (i *Uint64) UnmarshalGraphQL(input interface{}) error {
 	return err
 }
 
+// MarshalJSON marshal JSON
 func (i Uint64) MarshalJSON() ([]byte, error) {
 	b := []byte(strconv.FormatUint(uint64(i), 10))
 	return b, nil
