@@ -1,69 +1,70 @@
 ---
 # Test Data
 test-data:
-  email:
+  graphql-api:
     email:
-      interface-layer:
-        features:
-          send:
-            request:
-              bcc-email-01: d3tago.test@tutanota.com
-              bcc-email-02: d3tago.test.bcc@outlook.com
-              bcc-name-01: D3TAgo Test BCC 1 (Tutanota)
-              bcc-name-02: D3TAgo Test BCC 2 (Outlook)
-              cc-email-01: d3tago.test@protonmail.com
-              cc-email-02: d3tago.test.cc@tutanota.com
-              cc-name-01: D3TAgo Test CC 1 (Protonmail)
-              cc-name-02: D3TAgo Test CC 2 (Tutanota)
-              email-template-code: activate-registration-html
-              email-template-data:
-                body-activation-url: https://google.com
-                body-user-account: john.doe
-                footer-name: Customer Service
-                header-name: John Doe
-              from-email: d3tago.from@domain.com
-              from-name: D3TA Golang
-              processing-type: SYNC
-              to-email: d3tago.test@outlook.com
-              to-name: D3TAgo Test (Outlook)
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"templateCode":"activate-registration-html","status":"SENT.SYNC"}},"serverInfo":{"serverTime":"2020-11-16T13:47:21.66921+07:00"}}'
-    email-template:
-      interface-layer:
-        features:
-          create:
-            request:
-              et-code: test.code.%s
-              et-email-format: TEXT
-              et-is-active: true
-              et-name: Template Name %s
-              et-tpl-body: '{{define \"T\"}}Body Template{{end}}'
-              et-tpl-subject: Subject Template
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","version":"1.0.0"}},"serverInfo":{"serverTime":"2020-11-16T16:34:25.900227+07:00"}}'
-          delete:
-            request:
-              et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"query":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88"},"data":{"ID":17,"uuid":"80fd7f7a-3d64-4f16-b248-d182a43e7a18","code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","name":"Template Name d4d97155-65b3-4acf-9125-7840cf4afd88 Updated","isActive":true,"emailFormat":"TEXT","defaultVersionID":23,"versionCount":2}}},"serverInfo":{"serverTime":"2020-11-16T16:40:22.920044+07:00"}}'
-          find-by-code:
-            request:
-              et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"query":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88"},"data":{"ID":17,"uuid":"80fd7f7a-3d64-4f16-b248-d182a43e7a18","code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","name":"Template Name d4d97155-65b3-4acf-9125-7840cf4afd88","isActive":true,"emailFormat":"TEXT","defaultVersionID":22,"defaultTemplate":{"ID":22,"version":"1.0.0","subjectTpl":"Subject Template","bodyTpl":"{{define \"T\"}}Body Template{{end}}","emailTemplateID":17,"emailTemplate":null}}}},"serverInfo":{"serverTime":"2020-11-16T16:34:49.963626+07:00"}}'
-          set-active:
-            request:
-              et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
-              et-is-active: true
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","isActive":true}},"serverInfo":{"serverTime":"2020-11-16T16:39:21.818706+07:00"}}'
-          update:
-            request:
-              et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
-              et-email-format: TEXT
-              et-is-active: true
-              et-name: Template Name d4d97155-65b3-4acf-9125-7840cf4afd88
-              et-tpl-body: '{{define \"T\"}}Body Template Updated{{end}}'
-              et-tpl-subject: Subject Template Updated
-            response:
-              json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","version":"1.0.1"}},"serverInfo":{"serverTime":"2020-11-16T16:37:34.475624+07:00"}}'
+      email:
+        interface-layer:
+          features:
+            send:
+              request:
+                bcc-email-01: d3tago.test@tutanota.com
+                bcc-email-02: d3tago.test.bcc@outlook.com
+                bcc-name-01: D3TAgo Test BCC 1 (Tutanota)
+                bcc-name-02: D3TAgo Test BCC 2 (Outlook)
+                cc-email-01: d3tago.test@protonmail.com
+                cc-email-02: d3tago.test.cc@tutanota.com
+                cc-name-01: D3TAgo Test CC 1 (Protonmail)
+                cc-name-02: D3TAgo Test CC 2 (Tutanota)
+                email-template-code: activate-registration-html
+                email-template-data:
+                  body-activation-url: https://google.com
+                  body-user-account: john.doe
+                  footer-name: Customer Service
+                  header-name: John Doe
+                from-email: d3tago.from@domain.com
+                from-name: D3TA Golang
+                processing-type: SYNC
+                to-email: d3tago.test@outlook.com
+                to-name: D3TAgo Test (Outlook)
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"templateCode":"activate-registration-html","status":"SENT.SYNC"}},"serverInfo":{"serverTime":"2020-11-16T13:47:21.66921+07:00"}}'
+      email-template:
+        interface-layer:
+          features:
+            create:
+              request:
+                et-code: test.code.%s
+                et-email-format: TEXT
+                et-is-active: true
+                et-name: Template Name %s
+                et-tpl-body: '{{define \"T\"}}Body Template{{end}}'
+                et-tpl-subject: Subject Template
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","version":"1.0.0"}},"serverInfo":{"serverTime":"2020-11-16T16:34:25.900227+07:00"}}'
+            delete:
+              request:
+                et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"query":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88"},"data":{"ID":17,"uuid":"80fd7f7a-3d64-4f16-b248-d182a43e7a18","code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","name":"Template Name d4d97155-65b3-4acf-9125-7840cf4afd88 Updated","isActive":true,"emailFormat":"TEXT","defaultVersionID":23,"versionCount":2}}},"serverInfo":{"serverTime":"2020-11-16T16:40:22.920044+07:00"}}'
+            find-by-code:
+              request:
+                et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"query":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88"},"data":{"ID":17,"uuid":"80fd7f7a-3d64-4f16-b248-d182a43e7a18","code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","name":"Template Name d4d97155-65b3-4acf-9125-7840cf4afd88","isActive":true,"emailFormat":"TEXT","defaultVersionID":22,"defaultTemplate":{"ID":22,"version":"1.0.0","subjectTpl":"Subject Template","bodyTpl":"{{define \"T\"}}Body Template{{end}}","emailTemplateID":17,"emailTemplate":null}}}},"serverInfo":{"serverTime":"2020-11-16T16:34:49.963626+07:00"}}'
+            set-active:
+              request:
+                et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
+                et-is-active: true
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","isActive":true}},"serverInfo":{"serverTime":"2020-11-16T16:39:21.818706+07:00"}}'
+            update:
+              request:
+                et-code: test.code.d4d97155-65b3-4acf-9125-7840cf4afd88
+                et-email-format: TEXT
+                et-is-active: true
+                et-name: Template Name d4d97155-65b3-4acf-9125-7840cf4afd88
+                et-tpl-body: '{{define \"T\"}}Body Template Updated{{end}}'
+                et-tpl-subject: Subject Template Updated
+              response:
+                json: '{"status":"OK","response":{"message":"Operation succeeded","result":{"code":"test.code.d4d97155-65b3-4acf-9125-7840cf4afd88","version":"1.0.1"}},"serverInfo":{"serverTime":"2020-11-16T16:37:34.475624+07:00"}}'
