@@ -61,6 +61,9 @@ func (r *ETResolver) DefaultVersionID() *scalar.Uint64 {
 
 // DefaultTemplateVersion field resolver
 func (r *ETResolver) DefaultTemplateVersion() *ETVersionResolver {
+	if r.Model.DefaultTemplateVersion == nil {
+		return &ETVersionResolver{Model: &EmailTemplateVersion{}}
+	}
 	etRxs := &ETVersionResolver{r.Model.DefaultTemplateVersion}
 	return etRxs
 }

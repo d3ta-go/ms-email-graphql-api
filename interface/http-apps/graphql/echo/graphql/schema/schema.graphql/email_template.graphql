@@ -1,8 +1,4 @@
-type ETListAll {
-  Count: Int64
-  Data: [EmailTemplate!]!
-}
-
+# EmailTemplate Type
 type EmailTemplate {
   ID: Uint64
   UUID: String
@@ -14,10 +10,95 @@ type EmailTemplate {
   DefaultTemplateVersion: EmailTemplateVersion!
 }
 
+# EmailTemplateVersion Type
 type EmailTemplateVersion {
   ID: Uint64
   Version: String
   SubjectTpl: String
   BodyTpl: String
   EmailTemplateID: Uint64
+}
+
+# EmailTemplateListItem
+type EmailTemplateListItem {
+  ID: Uint64
+  UUID: String
+  Code: String
+  Name: String
+  IsActive: Boolean
+  EmailFormat: String
+  DefaultVersionID: Uint64
+}
+
+# ETListAll Response
+type ETListAllRes {
+  Count: Int64
+  Data: [EmailTemplateListItem!]!
+}
+
+# ETCreate Input Mutation
+input ETCreateInput {
+  Code: String!
+  Name: String!
+  IsActive: Boolean!
+  EmailFormat: EmailFormatEnum!
+  Template: EmailTemplateInput!
+}
+
+enum EmailFormatEnum {
+  HTML
+  TEXT
+}
+
+input EmailTemplateInput {
+  SubjectTpl: String!
+  BodyTpl: String!
+}
+
+# ETCreate Response
+type ETCreateRes {
+  Code: String
+  Version: String
+}
+
+# ETUpdate Input (Mutation)
+input ETUpdateInput {
+  Name: String!
+  IsActive: Boolean!
+  EmailFormat: EmailFormatEnum!
+  Template: EmailTemplateInput!
+}
+
+# ETUpdateKeys Input (Mutation)
+input ETUpdateKeysInput {
+  Code: String!
+}
+
+# ETUpdate Response
+type ETUpdateRes {
+  Code: String
+  Version: String
+}
+
+# ETSetActive Input (Mutation)
+input ETSetActiveInput {
+  IsActive: Boolean!
+}
+
+# ETSetActive Response
+type ETSetActiveRes {
+  Code: String
+  IsActive: Boolean
+}
+
+# ETDelete Response
+type ETDeleteRes {
+  ID: Uint64
+  UUID: String
+  Code: String
+  Name: String
+  IsActive: Boolean
+  EmailFormat: String
+  DefaultVersionID: Uint64
+  VersionCount: Int64
 }

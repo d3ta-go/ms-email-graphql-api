@@ -1,0 +1,31 @@
+# SendEmailInput Input
+input SendEmailInput {
+  TemplateCode: String!
+  From: EmailAddressInput!
+  To: EmailAddressInput!
+  Cc: [EmailAddressInput!]
+  Bcc: [EmailAddressInput!]
+  TemplateData: [TemplateDataInput!]!
+  ProcessingType: ProcessingTypeEnum!
+}
+
+input TemplateDataInput {
+  FieldName: String!
+  FieldValue: String!
+}
+
+input EmailAddressInput {
+  Email: String!
+  Name: String!
+}
+
+enum ProcessingTypeEnum {
+  SYNC
+  ASYNC
+}
+
+# SendEmail Response
+type SendEmailRes {
+  TemplateCode: String
+  Status: String
+}
