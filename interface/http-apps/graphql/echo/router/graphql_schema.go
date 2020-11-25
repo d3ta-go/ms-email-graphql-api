@@ -13,12 +13,11 @@ func SetGraphQLSchema(eg *echo.Group, e *echo.Echo, f *graphqlschema.FGraphQLSch
 	if err != nil {
 		return err
 	}
-	// OpenApi/swagger-ui
+	// GraphQL Playground / GraphiQL
 	if cfg.Applications.Servers.GraphQLAPI.Options.DisplaySWAPI {
 		eg.GET("/graphiql", f.GraphiQL)
 		eg.GET("/playground", echo.WrapHandler(f.Playground()))
 		eg.Static("/swapi-graphql-ui/assets", "./www/public/swapi-graphql-ui/assets")
-
 	}
 
 	gg := eg.Group("/v1")
