@@ -18,8 +18,6 @@ func JWTVerifier(h *handler.Handler) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 
-			c.Set("kirim-kontext", "ISINYA CONTEXT-DDD."+time.Now().Format(time.RFC3339Nano))
-
 			authHeader := c.Request().Header.Get("Authorization")
 			// get token
 			authHeaderPart := strings.Split(authHeader, " ")
