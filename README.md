@@ -111,6 +111,8 @@ URL: http://localhost:21201/graphql/playground
 2. Common System Libraries - [d3ta-go/system](https://github.com/d3ta-go/system)
 3. Need JWT Authorization/Token from: Account (Generic Subdomain) Module/Account REST API - [d3ta-go/ms-account-restapi](https://github.com/d3ta-go/ms-account-restapi). `Please use shared redis server to store/retrieve JWT Token.`
 
+4. Email REST API Microservice - [d3ta-go/ms-email-restapi](https://github.com/d3ta-go/ms-email-restapi)
+
 **Online Demo:\***
 
 > URL: **https://ms-email-graphql-d3tago-demo.mhs.web.id/graphql/playground**
